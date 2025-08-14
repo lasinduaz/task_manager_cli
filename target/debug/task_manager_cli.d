@@ -1,0 +1,1 @@
+/home/lasindu/Documents/Rust_Resouces/Projects\ /Small\ programs\ /task_manager_cli/target/debug/task_manager_cli: /home/lasindu/Documents/Rust_Resouces/Projects\ /Small\ programs\ /task_manager_cli/src/main.rs /home/lasindu/Documents/Rust_Resouces/Projects\ /Small\ programs\ /task_manager_cli/src/task_manager.rs
