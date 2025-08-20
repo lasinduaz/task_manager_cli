@@ -38,6 +38,6 @@ pub fn view_tasks() {
 }
 
 pub fn init_db() -> rusqlite::Result<()> {
-    init_db()
+    sql_querries::init_db()
 }
 

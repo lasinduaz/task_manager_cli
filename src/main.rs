@@ -2,10 +2,14 @@ use std::io::{self, Write};
 use std::result::Result;
 
 mod task_manager;
-//use task_manager::init_db();
+use task_manager::init_db;
 
 
 fn main() {
+
+
+    //create DB
+    task_manager::init_db().expect("Failed to initialize database");
     loop {
         println!("\n==========================");
         println!(" Task Manager - Main Menu ");
@@ -24,10 +28,6 @@ fn main() {
             .expect("Failed to read line");
 
         let choice = choice.trim();
-
-
-            //create DB
-            task_manager::init_db().expect("Failed to initialize database");
         match choice {
             "1" => task_manager::add_task(),
             "2" => task_manager::view_tasks(),
