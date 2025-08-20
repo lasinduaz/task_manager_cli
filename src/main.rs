@@ -31,7 +31,7 @@ fn main() {
         match choice {
             "1" => task_manager::add_task(),
             "2" => task_manager::view_tasks(),
-            "3" => println!("(Update Task - Not implemented yet)"),
+            "3" => task_manager::update_task(),
             "4" => task_manager::delete_task(),
             "5" => {
                 println!("Exiting...");

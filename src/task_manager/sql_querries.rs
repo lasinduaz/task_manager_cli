@@ -52,3 +52,9 @@ pub fn delete_task(Conn: &Connection, id: i32) ->  Result<usize>
         params![id],
     )
 }
+
+pub fn update_task(Conn: &Connection, id: i32, title: &str, description: &str, due_date: &str, status: &str) ->  Result<usize>{
+    Conn.execute
+    ("UPDATE tasks SET title = ?1, description = ?2, due_date = ?3, status = ?4 WHERE id = ?5", 
+    params![title, description, due_date, status, id])
+}
