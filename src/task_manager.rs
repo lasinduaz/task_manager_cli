@@ -41,3 +41,27 @@ pub fn init_db() -> rusqlite::Result<()> {
     sql_querries::init_db()
 }
 
+pub fn delete_task() {
+    let mut id = String::new();
+    println!("Enter task ID to delete:");
+    std::io::stdin().read_line(&mut id).unwrap();
+    let id: i32 = id.trim().parse().expect("Please enter a valid number");
+
+    let conn = connecttion_().expect("Failed to connect to database");
+    sql_querries::delete_task(&conn, id);
+
+    /*
+    match sql_querries::delete_task(&conn, id) {
+        Ok(rows_deleted) => {
+            if rows_deleted > 0 {
+                println!("Task deleted successfully!");
+            } else {
+                println!("Task not found!");
+            }
+        }
+        Err(e) => println!("Failed to delete task: {}", e),
+    }
+     */
+}
+
+

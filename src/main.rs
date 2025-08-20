@@ -32,13 +32,23 @@ fn main() {
             "1" => task_manager::add_task(),
             "2" => task_manager::view_tasks(),
             "3" => println!("(Update Task - Not implemented yet)"),
-            "4" => println!("(Delete Task - Not implemented yet)"),
+            "4" => task_manager::delete_task(),
             "5" => {
                 println!("Exiting...");
                 break;
             }
             _ => println!("Invalid choice, please try again."),
         }
+        /* 
+        //For get id for delete task
+        let mut delete_Id = String::new();
+        println!("Enter task id to delete:");
+        io::stdout().flush().unwrap();
+        io::stdin()
+        .read_line(&mut delete_Id).unwrap();
+        let delete_Id:i32 = delete_Id.trim().parse().unwrap(); //convert to i32
+    */
+
     }
     println!("Thank you for using the Task Manager!");
     

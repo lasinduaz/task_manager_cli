@@ -43,3 +43,12 @@ pub fn view_tasks(conn: &Connection) -> Result<()> {
     }
     Ok(())
 }
+
+
+pub fn delete_task(Conn: &Connection, id: i32) ->  Result<usize>
+{
+    Conn.execute(
+        "DELETE FROM tasks WHERE id = ?1",
+        params![id],
+    )
+}
