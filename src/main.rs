@@ -2,6 +2,9 @@ use std::io::{self, Write};
 use std::result::Result;
 
 mod task_manager;
+//use task_manager::init_db();
+
+
 fn main() {
     loop {
         println!("\n==========================");
@@ -22,9 +25,12 @@ fn main() {
 
         let choice = choice.trim();
 
+
+            //create DB
+            task_manager::init_db().expect("Failed to initialize database");
         match choice {
             "1" => task_manager::add_task(),
-            "2" => println!("(View Tasks - Not implemented yet)"),
+            "2" => task_manager::view_tasks(),
             "3" => println!("(Update Task - Not implemented yet)"),
             "4" => println!("(Delete Task - Not implemented yet)"),
             "5" => {
@@ -34,6 +40,8 @@ fn main() {
             _ => println!("Invalid choice, please try again."),
         }
     }
+    println!("Thank you for using the Task Manager!");
+    
 }
 
 
