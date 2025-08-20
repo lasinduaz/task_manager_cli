@@ -52,7 +52,7 @@ pub fn delete_task() {
     let conn: Connection = connecttion_().expect("Failed to connect to database"); //call to sql funtions 
     sql_querries::delete_task(&conn, id);       //SQL stment
 
-    /*
+
     match sql_querries::delete_task(&conn, id) {
         Ok(rows_deleted) => {
             if rows_deleted > 0 {
@@ -63,7 +63,7 @@ pub fn delete_task() {
         }
         Err(e) => println!("Failed to delete task: {}", e),
     }
-     */
+
 }
 
 pub fn update_task() {
@@ -98,7 +98,7 @@ pub fn update_task() {
     std::io::stdin().read_line(&mut update_status).unwrap();
     let status = update_status.trim();
 
-/*
+
     match sql_querries::update_task(&conn, id, title, description, due_date, status) {
         Ok(rows_updated) => {
             if rows_updated > 0 {
@@ -109,5 +109,5 @@ pub fn update_task() {
         }
         Err(e) => println!("Failed to update task: {}", e),
     }
-*/
+
 }
