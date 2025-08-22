@@ -4,10 +4,7 @@ use std::result::Result;
 mod task_manager;
 use task_manager::init_db;
 
-
 fn main() {
-
-
     //create DB
     task_manager::init_db().expect("Failed to initialize database");
     loop {
@@ -39,22 +36,18 @@ fn main() {
             }
             _ => println!("Invalid choice, please try again."),
         }
-        /* 
-        //For get id for delete task
-        let mut delete_Id = String::new();
-        println!("Enter task id to delete:");
-        io::stdout().flush().unwrap();
-        io::stdin()
-        .read_line(&mut delete_Id).unwrap();
-        let delete_Id:i32 = delete_Id.trim().parse().unwrap(); //convert to i32
-    */
-
+        
+            //For get id for delete task
+            let mut delete_Id = String::new();
+            println!("Enter task id to delete:");
+            io::stdout().flush().unwrap();
+            io::stdin()
+            .read_line(&mut delete_Id).unwrap();
+            let delete_Id:i32 = delete_Id.trim().parse().unwrap(); //convert to i32
+        
     }
     println!("Thank you for using the Task Manager!");
-    
 }
-
-
 
 /*
 task todo

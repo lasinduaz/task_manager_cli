@@ -3,7 +3,6 @@ use rusqlite::Connection;
 use sql_querries::{connecttion_, insert_task, view_tasks as db_view_tasks};
 use std::io::{stdin, stdout, Write};
 
-
 pub fn add_task() {
     let mut title = String::new();
     println!("Enter task title:");
@@ -25,7 +24,7 @@ pub fn add_task() {
     std::io::stdin().read_line(&mut status).unwrap();
     let status = status.trim();
 
-    let conn = connecttion_().expect("Failed to connect to database"); //call to sql funtions 
+    let conn = connecttion_().expect("Failed to connect to database"); //call to sql funtions
     match insert_task(&conn, title, description, due_date, status) {
         Ok(_) => println!("Task added successfully!"),
         Err(e) => println!("Failed to add task: {}", e),
@@ -33,7 +32,7 @@ pub fn add_task() {
 }
 
 pub fn view_tasks() {
-    let conn = connecttion_().expect("Failed to connect to database"); //call to sql funtions 
+    let conn = connecttion_().expect("Failed to connect to database"); //call to sql funtions
     if let Err(e) = db_view_tasks(&conn) {
         println!("Failed to view tasks: {}", e);
     }
@@ -49,9 +48,8 @@ pub fn delete_task() {
     std::io::stdin().read_line(&mut id).unwrap();
     let id: i32 = id.trim().parse().expect("Please enter a valid number");
 
-    let conn: Connection = connecttion_().expect("Failed to connect to database"); //call to sql funtions 
-    sql_querries::delete_task(&conn, id);       //SQL stment
-
+    let conn: Connection = connecttion_().expect("Failed to connect to database"); //call to sql funtions
+    sql_querries::delete_task(&conn, id); //SQL stment
 
     match sql_querries::delete_task(&conn, id) {
         Ok(rows_deleted) => {
@@ -63,7 +61,6 @@ pub fn delete_task() {
         }
         Err(e) => println!("Failed to delete task: {}", e),
     }
-
 }
 
 pub fn update_task() {
@@ -98,7 +95,6 @@ pub fn update_task() {
     std::io::stdin().read_line(&mut update_status).unwrap();
     let status = update_status.trim();
 
-
     match sql_querries::update_task(&conn, id, title, description, due_date, status) {
         Ok(rows_updated) => {
             if rows_updated > 0 {
@@ -109,5 +105,4 @@ pub fn update_task() {
         }
         Err(e) => println!("Failed to update task: {}", e),
     }
-
 }
